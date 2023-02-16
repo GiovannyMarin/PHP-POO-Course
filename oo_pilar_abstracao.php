@@ -5,22 +5,27 @@
 class Funcionario
 {
     //atributos
-    public $nome = null;
+
+    public $nome = 'Jose';
     public $telefone = null;
-    public $numFilhos = null;
+    public $numFilhos = 2;
 
     //metodos
 
     function resumirCadFunc()
     {
-        return 'esse eh o resumo do cadastro do funcionario';
+        return "$this->nome possui $this->numFilhos filhos";
     }
 
-    function modificarNumFilhos()
+    function modificarNumFilhos($num)
     {
         //afetar atributo de um obj
-
+        $this->numFilhos = $num;
     }
 };
+
+$y = new Funcionario();
+echo $y->modificarNumFilhos(8);
+echo $y->resumirCadFunc();
 
 ?><!-->
