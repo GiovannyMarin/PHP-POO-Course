@@ -12,33 +12,16 @@ class Funcionario
     public $cargo = null;
     public $salario = null;
 
-    //getter e setter
-    function setNome($nome)
+    //getter e setter (overloading)
+
+    function __set($atributo, $valor)
     {
-        $this->nome = $nome;
+        $this->$atributo = $valor;
     }
 
-    function setNumFilhos($numFilhos)
+    function __get($atributo)
     {
-        $this->numFilhos = $numFilhos;
-    }
-
-    function setTelefone($telefone)
-    {
-        $this->telefone = $telefone;
-    }
-
-    function getNome()
-    {
-        return $this->nome;
-    }
-    function getNumFilhos()
-    {
-        return $this->numFilhos;
-    }
-    function getTelefone()
-    {
-        return $this->telefone;
+        return $this->$atributo;
     }
 
     //metodos
@@ -56,9 +39,9 @@ class Funcionario
 };
 
 $y = new Funcionario();
-$y->setNome('Jose');
-$y->setNumFilhos(8);
-echo $y->resumirCadFunc();
+$y->__set('nome', 'Giovanny');
+$y->__set('nome', 'Ryan');
+echo $y->__get('nome');
 $x = new Funcionario();
 
 ?><!-->
